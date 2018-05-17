@@ -11,21 +11,16 @@
 
         <ul id="nav" class="sf-menu">
             <c:forEach items="${navigation}" var="nav">
-                <li class="${page.name.equals(nav.name)? 'current-menu-item' : ''}"><a href="/page?page=${nav.name}">${nav.caption.toString().toUpperCase()}</a></li>
+                <c:if test="${nav.parent == null}">
+                    <li class="${page.name.equals(nav.name)? 'current-menu-item' : ''}">
+                        <a href="/page?page=${nav.name}">${nav.caption.toString().toUpperCase()}</a>
+                        <jsp:include page="navigation/subnav.jsp">
+                            <jsp:param name="parent" value="${nav.id}"/>
+                            <jsp:param name="childesCount" value="${nav.childesCount}"/>
+                        </jsp:include>
+                    </li>
+                </c:if>
             </c:forEach>
-            <%--<li class="${page.name.equals("home")? 'current-menu-item' : ''}"><a href="/">HOME</a></li>--%>
-            <%--<li class="${page.name.equals("blog")? 'current-menu-item' : ''}"><a href="/page?page=blog">BLOG</a></li>--%>
-            <%--<li class="${page.name.equals("about")? 'current-menu-item' : ''}"><a href="/page?page=about">ABOUT</a>--%>
-                <%--<ul>--%>
-                    <%--<li><a href="page-elements.html">Elements</a></li>--%>
-                    <%--<li><a href="page-icons.html">Icons</a></li>--%>
-                    <%--<li><a href="page-typography.html">Typography</a></li>--%>
-                <%--</ul>--%>
-            <%--</li>--%>
-            <%--<li class="${page.name.equals("portfolio")? 'current-menu-item' : ''}"><a--%>
-                    <%--href="/page?page=portfolio">WORK</a></li>--%>
-            <%--<li class="${page.name.equals("contact")? 'current-menu-item' : ''}"><a href="page?page=contact">CONTACT</a>--%>
-            <%--</li>--%>
         </ul>
         <!-- ends nav -->
 
@@ -44,43 +39,44 @@
         <!-- comboNav -->
 
         <!-- slider holder -->
-        <div class="clearfix"></div>
-        <div id="slider-holder" class="clearfix">
+        <c:if test="${fullHeader == true}">
+            <div class="clearfix"></div>
+            <div id="slider-holder" class="clearfix">
 
-            <!-- slider -->
-            <div class="flexslider home-slider">
-                <ul class="slides">
-                    <li>
-                        <img src="img/slides/01.jpg" alt="alt text"/>
-                    </li>
-                    <li>
-                        <img src="img/slides/02.jpg" alt="alt text"/>
-                        <p class="flex-caption">Pellentesque habitant morbi feugiat vitae.</p>
-                    </li>
-                    <li>
-                        <img src="img/slides/03.jpg" alt="alt text"/>
-                    </li>
-                </ul>
+                <!-- slider -->
+                <div class="flexslider home-slider">
+                    <ul class="slides">
+                        <li>
+                            <img src="img/slides/01.jpg" alt="alt text"/>
+                        </li>
+                        <li>
+                            <img src="img/slides/02.jpg" alt="alt text"/>
+                            <p class="flex-caption">Pellentesque habitant morbi feugiat vitae.</p>
+                        </li>
+                        <li>
+                            <img src="img/slides/03.jpg" alt="alt text"/>
+                        </li>
+                    </ul>
+                </div>
+                <!-- ENDS slider -->
+
+                <div class="home-slider-clearfix "></div>
+
+                <!-- Headline -->
+                <div id="headline">
+                    <h4>HELLO, I AM FREE</h4>
+                    <p class="headline-text">Simpler template is a totally FREE template for personal and commercial
+                        projects.</p>
+                    <p class="headline-text">If you are looking for a WordPress version try the <a
+                            href="http://themeforest.net/item/simpler-wordpress-theme/1630783?ref=Ansimuz"
+                            class="read-more">Premium Version</a></p>
+
+                </div>
+                <!-- ENDS headline -->
+
+
             </div>
-            <!-- ENDS slider -->
-
-            <div class="home-slider-clearfix "></div>
-
-            <!-- Headline -->
-            <div id="headline">
-                <h4>HELLO, I AM FREE</h4>
-                <p class="headline-text">Simpler template is a totally FREE template for personal and commercial
-                    projects.</p>
-                <p class="headline-text">If you are looking for a WordPress version try the <a
-                        href="http://themeforest.net/item/simpler-wordpress-theme/1630783?ref=Ansimuz"
-                        class="read-more">Premium Version</a></p>
-
-            </div>
-            <!-- ENDS headline -->
-
-
-        </div>
-        <!-- ENDS slider holder -->
-
+            <!-- ENDS slider holder -->
+        </c:if>
     </div>
 </header>

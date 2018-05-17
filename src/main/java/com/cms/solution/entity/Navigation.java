@@ -1,9 +1,7 @@
 package com.cms.solution.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Navigation extends AbstractEntity {
@@ -14,6 +12,12 @@ public class Navigation extends AbstractEntity {
     @JoinColumn(name = "page")
     private Page page;
 
+
+    @ManyToOne
+    private Navigation parent;
+
+    @OneToMany(mappedBy = "parent", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Navigation> childes;
 
     public String getCaption() {
         return caption;
@@ -29,6 +33,22 @@ public class Navigation extends AbstractEntity {
 
     public void setPage(Page page) {
         this.page = page;
+    }
+
+    public Navigation getParent() {
+        return parent;
+    }
+
+    public void setParent(Navigation parent) {
+        this.parent = parent;
+    }
+
+    public List<Navigation> getChildes() {
+        return childes;
+    }
+
+    public void setChildes(List<Navigation> childes) {
+        this.childes = childes;
     }
 
     public Navigation() {

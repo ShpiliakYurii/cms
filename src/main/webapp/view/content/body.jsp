@@ -61,7 +61,7 @@
             </div>
             <!-- ENDS thumbs -->
 
-            <a href="work.html" class="theme-link-button">See All Work</a>
+            <a href="/page?page=portfolio" class="theme-link-button">See All Work</a>
 
         </div>
         <!-- ENDS home-block -->

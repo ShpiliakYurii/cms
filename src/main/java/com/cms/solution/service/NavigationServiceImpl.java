@@ -20,7 +20,8 @@ public class NavigationServiceImpl extends AbstractServiceImpl<Navigation> imple
         this.navigationRepository = navigationRepository;
     }
 
-    public List<Map<String, String>> getNavigation() {
+    @Override
+    public List<Map<String, Object>> getNavigation() {
         return navigationRepository.getNavigation();
     }
 

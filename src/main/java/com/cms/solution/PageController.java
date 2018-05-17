@@ -22,15 +22,13 @@ public class PageController {
 
     @RequestMapping("/")
     public String getHome(Model model) {
-        model.addAttribute("page", pageService.getByName(PageConstants.HOME_PAGE));
-        model.addAttribute("navigation", navigationService.getNavigation());
+        pageService.initializePage(model, PageConstants.HOME_PAGE, navigationService.getNavigation(), true);
         return "index";
     }
 
     @RequestMapping("/page")
     public String getPage(Model model, @RequestParam("page") String page) {
-        model.addAttribute("page", pageService.getByName(page));
-        model.addAttribute("navigation", navigationService.getNavigation());
+        pageService.initializePage(model, page, navigationService.getNavigation(), false);
         return "index";
     }
 }

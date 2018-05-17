@@ -7,6 +7,6 @@ import java.util.Map;
 
 public interface NavigationService extends AbstractService<Navigation>{
 
-    List<Map<String, String>> getNavigation();
+    List<Map<String, Object>> getNavigation();
 
 }
