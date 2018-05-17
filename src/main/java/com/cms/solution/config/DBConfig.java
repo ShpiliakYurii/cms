@@ -37,9 +37,8 @@ public class DBConfig {
         em.setDataSource(dataSource());
         em.setPackagesToScan("com.cms.solution.entity");
 
-        HibernateJpaVendorAdapter vendorAdapter
-                = new HibernateJpaVendorAdapter();
-//        vendorAdapter.setShowSql(true);
+        HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
+        vendorAdapter.setShowSql(true);
         em.setJpaVendorAdapter(vendorAdapter);
         HashMap<String, Object> properties = new HashMap<>();
 //        properties.put("hibernate.hbm2ddl.auto", "create-drop");

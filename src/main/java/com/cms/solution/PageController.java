@@ -20,14 +20,9 @@ public class PageController {
         this.navigationService = navigationService;
     }
 
-    @RequestMapping("/")
-    public String getHome(Model model) {
-        pageService.initializePage(model, PageConstants.HOME_PAGE, navigationService.getNavigation(), true);
-        return "index";
-    }
 
-    @RequestMapping("/page")
-    public String getPage(Model model, @RequestParam("page") String page) {
+    @RequestMapping("/")
+    public String getPage(Model model, @RequestParam(value = "page", defaultValue = PageConstants.HOME_PAGE) String page) {
         pageService.initializePage(model, page, navigationService.getNavigation(), false);
         return "index";
     }

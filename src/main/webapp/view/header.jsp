@@ -13,7 +13,7 @@
             <c:forEach items="${navigation}" var="nav">
                 <c:if test="${nav.parent == null}">
                     <li class="${page.name.equals(nav.name)? 'current-menu-item' : ''}">
-                        <a href="/page?page=${nav.name}">${nav.caption.toString().toUpperCase()}</a>
+                        <a href="?page=${nav.name}">${nav.caption.toString().toUpperCase()}</a>
                         <jsp:include page="navigation/subnav.jsp">
                             <jsp:param name="parent" value="${nav.id}"/>
                             <jsp:param name="childesCount" value="${nav.childesCount}"/>
@@ -39,7 +39,7 @@
         <!-- comboNav -->
 
         <!-- slider holder -->
-        <c:if test="${fullHeader == true}">
+        <c:if test="${page.fullHeader == true}">
             <div class="clearfix"></div>
             <div id="slider-holder" class="clearfix">
 

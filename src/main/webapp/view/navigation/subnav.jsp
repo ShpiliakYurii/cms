@@ -4,7 +4,7 @@
             <ul>
             <c:forEach items="${navigation}" var="nc">
                 <c:if test="${param.parent == nc.parent}">
-                    <li><a href="page-elements.html">${nc.caption}</a>
+                    <li><a href="?page=${nc.name}">${nc.caption}</a>
                     <jsp:include page="subnav.jsp">
                         <jsp:param name="parent" value="${nc.id}"/>
                         <jsp:param name="childesCount" value="${nc.childesCount}"/>
