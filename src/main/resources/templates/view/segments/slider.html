@@ -1,0 +1,11 @@
+<div class="project-slider" xmlns:th="http://www.w3.org/1999/xhtml" th:fragment="slider">
+    <div class="flexslider">
+        <ul class="slides">
+            <!--<c:forEach items="${segment.properties}" var="property">-->
+                <li th:each="property : ${segment.properties}">
+                    <img src="img/slides/" th:src="@{img/slides/${property.value.value}}" th:alt="${property.value.name}"/>
+                </li>
+            <!--</c:forEach>-->
+        </ul>
+    </div>
+</div>

@@ -22,6 +22,7 @@ public class SegmentController {
     public String getSegment(@RequestParam("id") long id, Model model) {
         Segment segment = segmentService.getById(id);
         model.addAttribute("segment", segment);
+        System.out.println(segment.getTemplate());
         return segment.getTemplate();
     }
 

@@ -19,6 +19,8 @@ public class Segment extends AbstractEntity {
     @ManyToOne
     private Page page;
 
+    private String fragment;
+
     public String getTemplate() {
         return template;
     }
@@ -57,6 +59,14 @@ public class Segment extends AbstractEntity {
 
     public void setOrderNumber(int orderNumber) {
         this.orderNumber = orderNumber;
+    }
+
+    public String getFragment() {
+        return fragment;
+    }
+
+    public void setFragment(String fragment) {
+        this.fragment = fragment;
     }
 
     public Segment() {

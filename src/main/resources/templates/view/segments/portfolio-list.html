@@ -1,0 +1,15 @@
+<div class="featured portfolio-list clearfix" th:fragment="portfolio-list" xmlns:th="http://www.w3.org/1999/xhtml">
+
+    <div th:each="child : ${page.childes}">
+        <!--<div th:if="${child.lightPage != null}" th:text="${child.lightPage.lightTemplate}"></div>-->
+        <div th:if="${child.lightPage != null}">
+            <div th:replace="${child.lightPage.lightTemplate} :: light-page (${child.lightPage})"></div>
+        </div>
+    </div>
+    <!--<c:forEach items="${page.childes}" var="child">-->
+        <!--<c:if test="${child.lightPage != null}">-->
+            <!--<jsp:include page="/light-page?id=${child.lightPage.id}"/>-->
+        <!--</c:if>-->
+    <!--</c:forEach>-->
+
+</div>

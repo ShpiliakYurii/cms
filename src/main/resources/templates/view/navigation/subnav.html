@@ -1,0 +1,14 @@
+<ul th:fragment="subnav(parent, childesCount)" xmlns:th="http://www.w3.org/1999/xhtml" th:if="${childesCount > 0}">
+    <!--<c:forEach items="${navigation}" var="nc">-->
+    <!--<c:if test="${param.parent == nc.parent}">-->
+    <li th:each="nc : ${navigation}" th:if="${nc.parent == parent}">
+        <a href="/" th:href="@{/(page=${nc.name})}" th:text="${nc.caption}"></a>
+        <div th:replace="view/navigation/subnav :: subnav(${nc.id}, ${nc.childesCount})"></div>
+        <!--<jsp:include page="subnav.html">-->
+        <!--<jsp:param name="parent" value="${nc.id}"/>-->
+        <!--<jsp:param name="childesCount" value="${nc.childesCount}"/>-->
+        <!--</jsp:include>-->
+    </li>
+    <!--</c:if>-->
+    <!--</c:forEach>-->
+</ul>

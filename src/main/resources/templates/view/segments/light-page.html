@@ -1,0 +1,7 @@
+<figure th:fragment="light-page (lp)" xmlns:th="http://www.w3.org/1999/xhtml">
+    <a href="/" th:href="@{/(page=${lp.page.name})}" class="thumb">
+        <img src="img/slides/" th:src="@{${'img/slides/'+lp.properties.picture.value}}"
+             th:alt="${lp.properties.picture.alt}"/>
+    </a>
+    <figcaption th:text="${lp.properties.caption.value}"></figcaption>
+</figure>

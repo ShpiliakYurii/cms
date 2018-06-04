@@ -21,7 +21,7 @@ public class Page extends AbstractEntity {
     @OneToMany(mappedBy = "parent", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Page> childes;
 
-    @OneToOne(mappedBy = "page", fetch = FetchType.LAZY, optional = true)
+    @OneToOne(mappedBy = "page", fetch = FetchType.EAGER, optional = true)
     private LightPage lightPage;
 
     @OneToMany(mappedBy = "page", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
@@ -33,6 +33,8 @@ public class Page extends AbstractEntity {
     @Temporal(TemporalType.DATE)
     @Column(columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private Calendar creationDate;
+
+    private String fragment;
 
     public String getTitle() {
         return title;
@@ -120,6 +122,14 @@ public class Page extends AbstractEntity {
 
     public void setCreationDate(Calendar creationDate) {
         this.creationDate = creationDate;
+    }
+
+    public String getFragment() {
+        return fragment;
+    }
+
+    public void setFragment(String fragment) {
+        this.fragment = fragment;
     }
 
     public Page() {

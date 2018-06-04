@@ -1,9 +1,9 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="utf-8"/>
-    <title>${page.title}</title>
+    <title th:text="${page.title}"></title>
 
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -68,18 +68,16 @@
 </head>
 
 <body lang="en">
-<%--Include header--%>
-<jsp:include page="view/header.jsp" />
+<div th:replace="view/header :: header"></div>
 
 <!-- MAIN -->
-<jsp:include page="${page.template}" >
-    <jsp:param name="page" value="${page}"/>
-</jsp:include>
-<!-- ENDS MAIN -->
+<div th:replace="${page.template} :: ${page.fragment}"></div>
+<!--<jsp:include page="${page.templates}">-->
+<!--<jsp:param name="page" value="${page}"/>-->
+<!--</jsp:include>-->
 
-<%--Include footer--%>
-<jsp:include page="view/footer.jsp" />
-<%--<%@include file="view/footer.jsp" %>--%>
+<!-- ENDS MAIN -->
+<div th:replace="view/footer :: footer"></div>
 
 </body>
 
