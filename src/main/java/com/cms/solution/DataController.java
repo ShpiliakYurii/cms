@@ -37,8 +37,8 @@ public class DataController {
     @GetMapping("/data/home")
     public ResponseEntity<Object> getHomePage() {
         Page page = pageService.getByName(PageConstants.HOME_PAGE);
-        LOGGER.debug("page: {}", page);
-        return new ResponseEntity<>(page, HttpStatus.OK);
+        LOGGER.debug("page: {}", page.getName());
+        return new ResponseEntity<>(page.getName(), HttpStatus.OK);
     }
 
 
