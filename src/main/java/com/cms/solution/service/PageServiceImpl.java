@@ -24,7 +24,10 @@ public class PageServiceImpl extends AbstractServiceImpl<Page> implements PageSe
     }
 
     public void initializePage(Model model, String name, List navigation, boolean fullHeader){
-        model.addAttribute("page", this.getByName(name));
+        Page page = this.getByName(name);
+        System.out.println(page.getName());
+        System.out.println(page.getTitle());
+        model.addAttribute("page", page);
         model.addAttribute("navigation", navigation);
         model.addAttribute("fullHeader", fullHeader);
     }
